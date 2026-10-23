@@ -34,7 +34,7 @@ class DefaultFirebaseOptions {
 
 p = 'app/android/app/build.gradle'
 s = open(p).read()
-s, n = re.subn(r'minSdkVersion\s+flutter\.minSdkVersion', 'minSdkVersion 23', s)
+s, n = re.subn(r'minSdk(Version)?\s*=?\s*flutter\.minSdkVersion', 'minSdkVersion 23', s)
 if n == 0:
     sys.exit('ERROR: could not set minSdkVersion')
 s, n = re.subn(r'(compileOptions\s*\{)', r'\1\n        coreLibraryDesugaringEnabled true', s, count=1)
